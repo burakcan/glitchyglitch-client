@@ -1,0 +1,39 @@
+.Spinner
+  position: fixed
+  left: 50%
+  top: 50%
+  width: 40px
+  height: 40px
+  margin: -20px 0 0 -20px
+  +vendor(transform, rotateZ(30deg))
+  +vendor(animation, 1s HexaSpinner steps(6) infinite)
+
+.Spinner-part
+  position: absolute
+  width: 0
+  height: 0
+  border: 20px solid transparent
+  border-bottom: 35px solid #000000
+  +vendor(transform-origin, 50% 32%)
+
+@for $i from 0 through 5
+  .Spinner-part:nth-child(#{$i})
+    +vendor(transform, rotateZ(#{$i * 60}deg))
+
+@-webkit-keyframes HexaSpinner
+  0%
+    -webkit-transform: rotateZ(30deg)
+  100%
+    -webkit-transform: rotateZ(390deg)
+
+@-moz-keyframes HexaSpinner
+  0%
+    -moz-transform: rotateZ(30deg)
+  100%
+    -moz-transform: rotateZ(390deg)
+
+@keyframes HexaSpinner
+  0%
+    transform: rotateZ(30deg)
+  100%
+    transform: rotateZ(390deg)

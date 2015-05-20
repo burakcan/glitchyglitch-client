@@ -1,0 +1,34 @@
+{
+  "name": "Glitch-client",
+  "version": "0.0.1",
+  "description": "Glitch with music or music with glitch. You choose.",
+  "main": "index.js",
+  "scripts": {
+    "build-prod": "node_modules/webpack/bin/webpack.js --config build.config.js --colors -p",
+    "build-dev": "node server.js",
+    "serve": "./node_modules/pm2/bin/pm2 start ./node_modules/http-server/bin/http-server -i 1 -u node --name glitch-client -- ./dist -d false -s",
+    "stop": "./node_modules/pm2/bin/pm2 delete glitch-client"
+  },
+  "author": "Burak Can <neoberg@gmail.com> (http://burakcan.me/)",
+  "license": "gpl-v2",
+  "devDependencies": {
+    "css-loader": "0.12.0",
+    "envify": "^3.4.0",
+    "flux": "2.0.1",
+    "html-webpack-plugin": "1.1.0",
+    "http-server": "^0.8.0",
+    "immutable": "3.7.1",
+    "jsx-loader": "0.13.1",
+    "microajax": "1.0.3",
+    "node-sass": "2.1.1",
+    "orejs": "^0.1.0",
+    "pm2": "^0.12.15",
+    "react": "0.13.1",
+    "react-hot-loader": "1.2.4",
+    "sass-loader": "0.4.2",
+    "style-loader": "0.12.2",
+    "transform-loader": "^0.2.2",
+    "webpack": "1.8.4",
+    "webpack-dev-server": "1.8.0"
+  }
+}

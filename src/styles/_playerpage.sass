@@ -1,0 +1,135 @@
+.PlayerPage
+  background: #000000
+
+  & ~ .Footer
+    color: #ffffff
+    opacity: 0.3
+
+    a
+      color: #ffffff
+
+    &:hover
+      opacity: 1
+
+
+.Glitch
+  background-size: cover
+  background-position: center
+  position: fixed
+  width: 100%
+  height: 100%
+  left: 0
+  top: 0
+  +vendor(animation, 5s Glitch steps(2) infinite)
+  @extend .z-index2
+
+#iframePlayer
+  // position: fixed
+  // @extend .z-index5
+  @extend .is-offScreen
+
+.SongInfo
+  position: fixed
+  right: 20px
+  bottom: 80px
+  text-align: right
+  @extend .z-index3
+
+  h2
+    font-size: 2.2rem
+    color: #ffffff
+    display: inline-block
+    font-weight: 400
+
+  h3
+    font-size: 1.6rem
+    color: #ffffff
+    display: inline-block
+    font-weight: 400
+
+.Progress
+  position: fixed
+  left: 0
+  bottom: 0
+  width: 100%
+  height: 4px
+  @extend .z-index3
+
+.Progress-buffer
+  position: absolute
+  left: 0
+  top: 0
+  height: 4px
+  background: #000000
+
+.Progress-time
+  position: absolute
+  left: 0
+  top: 0
+  height: 4px
+  background: #ffffff
+
+.Controls
+  position: fixed
+  color: #ffffff
+  right: 20px
+  bottom: 30px
+  @extend .z-index3
+
+.Controls-button,
+.Controls-button:active,
+.Controls-button:focus
+  outline: none
+
+.Controls-button
+  vertical-align: middle
+  margin-left: 14px
+  @extend .clickable
+
+@-webkit-keyframes Glitch
+  0%
+    -webkit-transform: scale(1)
+  5%
+    -webkit-transform: scale(1.5)
+  25%
+    -webkit-transform: scale(1.2)
+  50%
+    -webkit-transform: scale(1)
+  81%
+    -webkit-transform: scale(4)
+  94%
+    -webkit-transform: scale(1.3)
+  100%
+    -webkit-transform: scale(1.9)
+
+@-moz-keyframes Glitch
+  0%
+    -moz-transform: scale(1)
+  5%
+    -moz-transform: scale(1.5)
+  25%
+    -moz-transform: scale(1.2)
+  50%
+    -moz-transform: scale(1)
+  81%
+    -moz-transform: scale(4)
+  94%
+    -moz-transform: scale(1.3)
+  100%
+    -moz-transform: scale(1.9)
+
+@keyframes Glitch
+  0%
+    transform: scale(1)
+  5%
+    transform: scale(1.5)
+  25%
+    transform: scale(1.2)
+  50%
+    transform: scale(1)
+  81%
+    transform: scale(4)
+  94%
+    transform: scale(1.3)
+  100%
+    transform: scale(1.9)

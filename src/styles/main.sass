@@ -1,0 +1,25 @@
+@import 'normalize'
+@import 'basicss'
+@import 'commons'
+
+body,
+html
+  width: 100%
+  height: 100%
+  font-size: 62.5%
+  font-family: "adelle-sans",sans-serif
+  font-weight: 400
+  +vendor(user-select, none)
+
+a
+  text-decoration: none
+
+  &:hover,
+  &:focus,
+  &:active
+    text-decoration: none
+
+@import 'spinner'
+@import 'page'
+@import 'playerpage'
+@import 'searchpage'

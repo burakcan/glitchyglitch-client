@@ -1,0 +1,80 @@
+.SearchPage
+  background: #ffffff
+
+  .Spinner
+    @extend .is-hidden
+
+.SearchInput
+  position: absolute
+  left: 50%
+  top: 50%
+  display: block
+  width: 60%
+  height: 8rem
+  line-height: 8rem
+  font-size: 4rem
+  color: #000
+  overflow: hidden
+  +vendor(transform, translateX(-50%) translateY(-50%))
+
+.SearchInput-inner
+  position: absolute
+  left: 0
+  top: 0
+  height: 8rem
+  @extend .z-index2
+
+.SearchInput-inner > *
+ vertical-align: middle
+
+.SearchInput-cursor
+  display: inline-block
+  width: 2px
+  margin-right: -2px
+  height: 8rem
+  background: #000
+  +vendor(animation, blink infinite 1s steps(1))
+
+.SearchInput-placeHolder
+  color: #dadada
+
+.SearchPage.is-searching
+  .SearchInput
+    @extend .is-hidden
+
+  .Spinner
+    display: block
+
+.SearchPage.is-empty
+  .SearchInput-placeHolder
+    display: inline-block
+
+@-webkit-keyframes blink
+  0%
+    opacity: 0
+
+  50%
+    opacity: 1
+
+  100%
+    opacity: 0
+
+@-moz-keyframes blink
+  0%
+    opacity: 0
+
+  50%
+    opacity: 1
+
+  100%
+    opacity: 0
+
+@keyframes blink
+  0%
+    opacity: 0
+
+  50%
+    opacity: 1
+
+  100%
+    opacity: 0

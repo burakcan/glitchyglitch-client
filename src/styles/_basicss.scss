@@ -1,0 +1,82 @@
+html {
+  box-sizing: border-box; /* 1 */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-weight: normal;
+  font-size: 100%;
+  line-height: normal;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit; /* 1 */
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+}
+
+body, input, textarea, select, button {
+  // text-rendering: optimizeLegibility; /* 2 */
+  // -webkit-font-smoothing: antialiased; /* 3 */
+  // -moz-osx-font-smoothing: grayscale; /* 4 */
+  font-feature-settings: "liga", "kern"; /* 5 */
+  -webkit-font-feature-settings: "liga", "kern";
+  -moz-font-feature-settings: "liga", "kern";
+  font-kerning: normal; /* 6 */
+  -webkit-font-kerning: normal;
+  -moz-font-kerning: normal;
+}
+
+p {
+  hyphens: auto; /* 7 */
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+}
+
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* 8 */
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+button, fieldset, iframe {
+  border: 0;
+}
+
+button {
+  background: transparent;
+  padding: 0;
+}
+
+fieldset,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}

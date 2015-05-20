@@ -1,0 +1,63 @@
+
+/* z-index scale */
+@for $i from -2 through 5
+  .z-index#{$i}
+    z-index:              $i * 10
+
+/* vendor mixin */
+=vendor($name, $argument)
+  -webkit-#{$name}: #{$argument}
+  -moz-#{$name}: #{$argument}
+  #{$name}: #{$argument}
+
+.is-hidden
+  display: none
+
+.is-offScreen
+  position: absolute
+  left: -300vw
+
+[class^="icon-"],
+[class*=" icon-"]
+    height: 24px
+    width: 24px
+    display: inline-block
+    fill: currentColor
+
+.icon-fullscreen
+  height: 16px
+  width: 16px
+
+.icon-search
+  height: 24px
+  width: 24px
+
+.clickable:active
+  +vendor(transform, scale(0.8))
+
+.Notification
+  position: fixed
+  left: 50%
+  top: 50%
+  margin-top: 75px
+  padding: 10px
+  background: #000000
+  color: #ffffff
+  font-size: 1.4rem
+  display: none
+  +vendor(transform, translateX(-50%))
+
+  &.is-active
+    display: block
+
+.Footer
+  position: fixed
+  right: 10px
+  top: 20px
+  font-size: 1.2rem
+  @extend .z-index5
+
+  a
+    color: #000000
+    margin: 0 10px
+    text-decoration: underline
