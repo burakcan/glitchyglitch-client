@@ -52,7 +52,7 @@ var SongStore         = require('stores/song');
           <Notifications />
           <footer className='Footer'>
             <a href='http://twitter.com/neoberg' title='Burak Can' target='blank'>burakcan</a>|
-            <a href='http://github.com/burakcan/glitchyglitch' title='Glitchy glitch' target='blank'>source</a>
+            <a href='https://github.com/burakcan/glitchyglitch-client' title='Glitchy glitch' target='blank'>source</a>
           </footer>
         </div>
       );
