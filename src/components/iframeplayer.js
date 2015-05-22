@@ -61,8 +61,10 @@ module.exports = React.createClass({
               type : 'song:ended'
             }) );
           } else if (event.data == 2) {
+            this.setFavicon(2);
             this.refs['playPause'].getDOMNode().innerHTML = icons['play'];
           } else if (event.data == 1) {
+            this.setFavicon(1);
             this.refs['playPause'].getDOMNode().innerHTML = icons['pause'];
           }
         }.bind(this)
@@ -140,6 +142,24 @@ module.exports = React.createClass({
       this.player.pauseVideo();
       this.refs['playPause'].getDOMNode().innerHTML = icons['play'];
     }
+  },
+
+  setFavicon: function(state){
+    var icon      = (state == 1) ? './fav-play.png' : './fav-pause.png';
+
+    var canvas    = document.createElement('canvas');
+    canvas.width  = 32;
+    canvas.height = 32;
+    var context   = canvas.getContext('2d');
+    var link      = document.getElementById('favicon');
+    var imageObject = new Image();
+
+    imageObject.onload = function(){
+      context.drawImage(this, 0, 0);
+      link.href = canvas.toDataURL('image/png');
+    }
+
+    imageObject.src = icon;
   },
 
   render: function(){

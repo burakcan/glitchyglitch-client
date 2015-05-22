@@ -31,6 +31,16 @@ var SongStore         = require('stores/song');
       ]
     },
 
+    setTitle: function(){
+      document.title = (this.state['song:current']) ?
+                        this.state['song:current'].get('name') +' - ' + this.state['song:current'].get('artist'):
+                        'Glitchy Glitch';
+    },
+
+    componentDidUpdate: function(){
+      this.setTitle();
+    },
+
     render: function(){
       var page = (this.state['song:current']) ?
         <PlayerPage />:
