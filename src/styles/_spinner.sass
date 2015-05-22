@@ -1,39 +1,40 @@
 .Spinner
+  margin: 100px auto
+  width: 100px
+  height: 60px
+  text-align: center
+  font-size: 20px
   position: fixed
   left: 50%
   top: 50%
-  width: 40px
-  height: 40px
-  margin: -20px 0 0 -20px
-  +vendor(transform, rotateZ(30deg))
-  +vendor(animation, 1s HexaSpinner steps(6) infinite)
+  margin: -30px 0 0 -50px
 
 .Spinner-part
-  position: absolute
-  width: 0
-  height: 0
-  border: 20px solid transparent
-  border-bottom: 35px solid #000000
-  +vendor(transform-origin, 50% 32%)
+  background-color: #000000
+  height: 100%
+  width: 12px
+  display: inline-block
+  +vendor(animation, stretchdelay 1.2s infinite ease-in-out)
 
 @for $i from 0 through 5
   .Spinner-part:nth-child(#{$i})
-    +vendor(transform, rotateZ(#{$i * 60}deg))
+    +vendor(animation-delay, #{$i * -0.1}s)
 
-@-webkit-keyframes HexaSpinner
-  0%
-    -webkit-transform: rotateZ(30deg)
-  100%
-    -webkit-transform: rotateZ(390deg)
 
-@-moz-keyframes HexaSpinner
-  0%
-    -moz-transform: rotateZ(30deg)
-  100%
-    -moz-transform: rotateZ(390deg)
+@-webkit-keyframes stretchdelay
+  0%, 40%, 100%
+    -webkit-transform: scaleY(0.4)
+  20%
+    -webkit-transform: scaleY(1.0)
 
-@keyframes HexaSpinner
-  0%
-    transform: rotateZ(30deg)
-  100%
-    transform: rotateZ(390deg)
+@-moz-keyframes stretchdelay
+  0%, 40%, 100%
+    -moz-transform: scaleY(0.4)
+  20%
+    -moz-transform: scaleY(1.0)
+
+@keyframes stretchdelay
+  0%, 40%, 100%
+    transform: scaleY(0.4)
+  20%
+    transform: scaleY(1.0)

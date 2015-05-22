@@ -11,7 +11,47 @@ module.exports = window.songStore = Ore.createStore({
     'song:current'        : null,
     'song:queue'          : Immutable.List(),
     'song:queue:pending'  : false,
-    'song:notification'   : null
+    'song:notification'   : null,
+    'song:exampleTags'    : Immutable.List([
+      'happy',
+      'romantic',
+      'sexy',
+      'sad',
+      'monster',
+      'istanbul',
+      'new york',
+      'exciting',
+      'chill',
+      'groove',
+      'coffee',
+      'oldies',
+      'acoustic',
+      'ambient',
+      'blues',
+      'classical',
+      'country',
+      'electronic',
+      'emo',
+      'folk',
+      'hardcore',
+      'hip hop',
+      'indie',
+      'jazz',
+      'latin',
+      'metal',
+      'pop',
+      'pop punk',
+      'punk',
+      'reggae',
+      'rnb',
+      'rock',
+      'soul',
+      'world',
+      '60s',
+      '70s',
+      '80s',
+      '90s'
+    ])
   },
 
   interestedIn : {
@@ -113,48 +153,11 @@ module.exports = window.songStore = Ore.createStore({
 
     notFound: function(searchTerm){
       this.clear();
-      var validTags = [
-        'happy',
-        'sad',
-        'monster',
-        'istanbul',
-        'new york',
-        'exciting',
-        'chill',
-        'groove',
-        'coffee',
-        'oldies',
-        'acoustic',
-        'ambient',
-        'blues',
-        'classical',
-        'country',
-        'electronic',
-        'emo',
-        'folk',
-        'hardcore',
-        'hip hop',
-        'indie',
-        'jazz',
-        'latin',
-        'metal',
-        'pop',
-        'pop punk',
-        'punk',
-        'reggae',
-        'rnb',
-        'rock',
-        'soul',
-        'world',
-        '60s',
-        '70s',
-        '80s',
-        '90s'
-      ];
+      var validTags = this.state.get('song:exampleTags');
 
-      var r1 = Math.floor(Math.random() * (validTags.length));
-      var r2 = Math.floor(Math.random() * (validTags.length));
-      this.setNotification('No results for ' + searchTerm + '. Maybe you can try "'+validTags[r1]+'" or "'+validTags[r2]+'"?');
+      var r1 = Math.floor(Math.random() * (validTags.size));
+      var r2 = Math.floor(Math.random() * (validTags.size));
+      this.setNotification('No results for ' + searchTerm + '. Maybe you can try "'+validTags.get('r1')+'" or "'+validTags.get('r2')+'"?');
     },
 
     shitHappened: function(){

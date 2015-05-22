@@ -25,7 +25,8 @@ module.exports = React.createClass({
 
   defineRequiredData: function(){
     return [
-      'song:busy'
+      'song:busy',
+      'song:exampleTags'
     ]
   },
 
@@ -125,6 +126,10 @@ module.exports = React.createClass({
     var inputValue        = this.state['inputValue'];
     var isEmpty           = (inputValue.length == 0) ? 'is-empty' : '';
     var isSearching       = (this.state['song:busy']) ? 'is-searching' : '';
+    var exampleTags       = this.state['song:exampleTags'];
+
+    var r1 = Math.floor(Math.random() * (exampleTags.size));
+    var r2 = Math.floor(Math.random() * (exampleTags.size));
 
     return (
       <div className={'Page SearchPage ' + isEmpty + ' ' + isSearching}>
@@ -134,7 +139,7 @@ module.exports = React.createClass({
             {inputValue.slice(0, cursorPosition)}
             <span className='SearchInput-cursor'></span>
             {inputValue.slice(cursorPosition, inputValue.length)}
-            <span className='SearchInput-placeHolder is-hidden'>search here...</span>
+            <span className='SearchInput-placeHolder is-hidden'>search something, e.g. {exampleTags.get(r1)} or {exampleTags.get(r2)}...</span>
           </div>
           <input ref='realInput' className='is-offScreen' onChange={this.handleChange} />
         </div>
