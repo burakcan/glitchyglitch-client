@@ -6,7 +6,7 @@
   "scripts": {
     "build-prod": "node_modules/webpack/bin/webpack.js --config build.config.js --colors -p",
     "build-dev": "node server.js",
-    "serve": "./node_modules/pm2/bin/pm2 start ./node_modules/http-server/bin/http-server -i 1 -u node --name glitch-client -- ./dist -d false -s",
+    "serve": "./node_modules/pm2/bin/pm2 start ./node_modules/http-server/bin/http-server -i 0 -u node --name glitch-client -- ./dist -d false --p 80",
     "stop": "./node_modules/pm2/bin/pm2 delete glitch-client"
   },
   "author": "Burak Can <neoberg@gmail.com> (http://burakcan.me/)",
@@ -21,8 +21,8 @@
     "jsx-loader": "0.13.1",
     "microajax": "1.0.3",
     "node-sass": "2.1.1",
-    "orejs": "^0.1.0",
-    "pm2": "^0.12.15",
+    "orejs": "0.1.0",
+    "pm2": "0.12.15",
     "react": "0.13.1",
     "react-hot-loader": "1.2.4",
     "sass-loader": "0.4.2",
