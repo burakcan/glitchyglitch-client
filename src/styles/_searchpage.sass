@@ -38,6 +38,20 @@
 .SearchInput-placeHolder
   color: #dadada
 
+.SearchInput-input
+  display: block
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  height: 80px
+  border: none
+  outline: none
+  color: red
+  background: transparent
+  color: transparent
+  @extend .z-index5
+
 .SearchPage.is-searching
   .SearchInput
     @extend .is-hidden

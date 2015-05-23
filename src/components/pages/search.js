@@ -141,7 +141,7 @@ module.exports = React.createClass({
             {inputValue.slice(cursorPosition, inputValue.length)}
             <span className='SearchInput-placeHolder is-hidden'>search something, e.g. {exampleTags.get(r1)} or {exampleTags.get(r2)}...</span>
           </div>
-          <input ref='realInput' className='is-offScreen' onChange={this.handleChange} />
+          <input ref='realInput' className='SearchInput-input' onChange={this.handleChange} />
         </div>
       </div>
     )
