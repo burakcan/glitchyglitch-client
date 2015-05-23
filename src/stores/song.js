@@ -159,7 +159,7 @@ module.exports = window.songStore = Ore.createStore({
 
       var r1 = Math.floor(Math.random() * (validTags.size));
       var r2 = Math.floor(Math.random() * (validTags.size));
-      this.setNotification('No results for ' + searchTerm + '. Maybe you can try "'+validTags.get('r1')+'" or "'+validTags.get('r2')+'"?');
+      this.setNotification('No results for ' + searchTerm + '. Maybe you can try "'+validTags.get(r1)+'" or "'+validTags.get(r2)+'"?');
       ga('send', {
         'hitType'      : 'event',
         'eventCategory': 'error',
