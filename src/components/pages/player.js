@@ -8,6 +8,15 @@ module.exports = React.createClass({
 
   mixins : [PureRenderMixin],
 
+  componentDidMount: function(){
+    ga('set', {
+      page: '/player',
+      title: 'Player Page'
+    });
+
+    ga('send', 'pageview');
+  },
+
   render: function(){
     return (
       <div className='Page PlayerPage'>

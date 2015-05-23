@@ -92,8 +92,10 @@ module.exports = window.songStore = Ore.createStore({
 
       Ajax(url, function(res){
         if (res.status == 404){
+          console.log('404');
           return this.notFound(searchTerm);
         } else if (res.status != 200){
+          console.log('error');
           return this.shitHappened();
         }
 
@@ -158,11 +160,23 @@ module.exports = window.songStore = Ore.createStore({
       var r1 = Math.floor(Math.random() * (validTags.size));
       var r2 = Math.floor(Math.random() * (validTags.size));
       this.setNotification('No results for ' + searchTerm + '. Maybe you can try "'+validTags.get('r1')+'" or "'+validTags.get('r2')+'"?');
+      ga('send', {
+        'hitType'      : 'event',
+        'eventCategory': 'error',
+        'eventAction'  : 'not found',
+        'eventLabel'   : 'song store'
+      });
     },
 
     shitHappened: function(){
       this.clear();
       this.setNotification('Yeah, listen, uh... we fucked up. We\'re trying our best to fix this.');
+      ga('send', {
+        'hitType'      : 'event',
+        'eventCategory': 'error',
+        'eventAction'  : 'probably 500',
+        'eventLabel'   : 'song store'
+      });
     }
   }
 

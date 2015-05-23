@@ -35,6 +35,15 @@ module.exports = React.createClass({
     input.focus();
     input.onblur = input.focus;
     input.onkeydown = this.handleKeyDown;
+
+    setTimeout(function(){
+      ga('set', {
+        page: '/search',
+        title: 'Search Page'
+      });
+
+      ga('send', 'pageview');
+    }, 1000);
   },
 
   componentDidUpdate: function(){
@@ -91,6 +100,13 @@ module.exports = React.createClass({
         searchTerm : inputValue
       }
     }) );
+
+    ga('send', {
+      'hitType'      : 'event',
+      'eventCategory': 'search',
+      'eventAction'  : 'submit',
+      'eventLabel'   : 'user'
+    });
   },
 
   moveCursor: function(direction){

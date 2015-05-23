@@ -60,6 +60,13 @@ module.exports = React.createClass({
             Dispatcher.dispatch( new Ore.ACTION({
               type : 'song:ended'
             }) );
+
+            ga('send', {
+              'hitType'      : 'event',
+              'eventCategory': 'player',
+              'eventAction'  : 'next song',
+              'eventLabel'   : 'system'
+            });
           } else if (event.data == 2) {
             this.setFavicon(2);
             this.refs['playPause'].getDOMNode().innerHTML = icons['play'];
@@ -96,6 +103,13 @@ module.exports = React.createClass({
     Dispatcher.dispatch( new Ore.ACTION({
       type : 'search:again'
     }) );
+
+    ga('send', {
+      'hitType'      : 'event',
+      'eventCategory': 'player',
+      'eventAction'  : 'search again',
+      'eventLabel'   : 'user'
+    });
   },
 
   fullScreen: function(){
@@ -121,8 +135,14 @@ module.exports = React.createClass({
       } else if (elem.webkitRequestFullscreen) {
         elem.webkitRequestFullscreen();
       }
-
     }
+
+    ga('send', {
+      'hitType'      : 'event',
+      'eventCategory': 'player',
+      'eventAction'  : 'toggle fullScreen',
+      'eventLabel'   : 'user'
+    });
 
   },
 
@@ -130,6 +150,13 @@ module.exports = React.createClass({
     Dispatcher.dispatch( new Ore.ACTION({
       type : 'song:next'
     }) );
+
+    ga('send', {
+      'hitType'      : 'event',
+      'eventCategory': 'player',
+      'eventAction'  : 'next song',
+      'eventLabel'   : 'user'
+    });
   },
 
   togglePlayingState: function(){
@@ -142,6 +169,13 @@ module.exports = React.createClass({
       this.player.pauseVideo();
       this.refs['playPause'].getDOMNode().innerHTML = icons['play'];
     }
+
+    ga('send', {
+      'hitType'      : 'event',
+      'eventCategory': 'player',
+      'eventAction'  : 'toggle playing state',
+      'eventLabel'   : 'user'
+    });
   },
 
   setFavicon: function(state){
